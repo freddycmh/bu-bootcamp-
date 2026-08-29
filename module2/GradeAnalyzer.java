@@ -84,5 +84,7 @@ public class GradeAnalyzer {
         } catch (IOException e) {
             System.out.println("Could not write report to file: " + e.getMessage());
         }
+
+        
     }
 }
