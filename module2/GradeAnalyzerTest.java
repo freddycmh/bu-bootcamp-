@@ -31,8 +31,23 @@ public class GradeAnalyzerTest {
     } 
  
     @Test 
-    void calculateAverage_handlesAllSameValues() { 
-        ArrayList<Integer> scores = new ArrayList<>(Arrays.asList(88, 88, 88)); 
-        assertEquals(88.0, GradeAnalyzer.calculateAverage(scores)); 
+    void calculateAverage_handlesAllSameValues() {
+        ArrayList<Integer> scores = new ArrayList<>(Arrays.asList(88, 88, 88));
+        assertEquals(88.0, GradeAnalyzer.calculateAverage(scores));
+    }
+    
+        // --- Step 7: additional edge-case tests ---
+
+    @Test
+    void calculateAverage_returnsExactMean_forTenScores() {
+        ArrayList<Integer> scores = new ArrayList<>(
+            List.of(10, 20, 30, 40, 50, 60, 70, 80, 90, 100));
+        // sum 550 over 10 scores -> 55.0
+        assertEquals(55.0, GradeAnalyzer.calculateAverage(scores), 1e-9);
+    }
+
+    @Test
+    void calculateAverage_returnsZero_forNullList() {
+        assertEquals(0.0, GradeAnalyzer.calculateAverage(null), 1e-9);
     }
 }
